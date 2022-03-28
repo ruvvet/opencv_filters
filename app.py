@@ -16,7 +16,6 @@ app.config['UPLOAD_FOLDER'] = uploads
 # def hello():
 #     return '<h1>Hello, World!</h1>'
 
-
 @app.route('/<filter>', methods=['POST'])
 def apply_filter(filter):
     try:
@@ -57,10 +56,9 @@ def apply_filter(filter):
 
         if filter== 'colorpop':
             image_buffer= colorpop(imageFile)
-            return image_buffer
-            # return send_file(io.BytesIO(image_buffer),
-            #                         attachment_filename='colorpop.jpg',
-            #                         mimetype='image/jpeg')
+            return send_file(io.BytesIO(image_buffer),
+                                    attachment_filename='colorpop.jpg',
+                                    mimetype='image/jpeg')
 
         return 'hi'
  
